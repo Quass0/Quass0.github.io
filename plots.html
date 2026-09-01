@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://jqdevos.github.io/plots.html" />
+  <title>Plots &middot; Jacques Quass de Vos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Data visualisations on trade, spatial economics, and South African economic data by Jacques Quass de Vos.">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* --- Charter (self-hosted, same as index.html) --- */
+    @font-face {
+      font-family: 'Charter';
+      src: url('fonts/Charter Regular.ttf') format('truetype');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Charter';
+      src: url('fonts/Charter Bold.ttf') format('truetype');
+      font-weight: bold; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Charter';
+      src: url('fonts/Charter Italic.ttf') format('truetype');
+      font-weight: normal; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Charter';
+      src: url('fonts/Charter Bold Italic.ttf') format('truetype');
+      font-weight: bold; font-style: italic; font-display: swap;
+    }
+
+    body {
+      font-family: 'Charter', Georgia, 'Times New Roman', serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    /* --- Page intro --- */
+    .page-intro {
+      margin-top: 3%;
+      margin-bottom: 2.2rem;
+      max-width: 34em;
+    }
+    .page-intro h1 {
+      font-family: 'Charter', Georgia, serif;
+      font-weight: bold;
+      font-size: 30px;
+      margin: 0 0 0.6rem 0;
+    }
+    .page-intro p {
+      color: #444;
+      margin: 0;
+    }
+
+    /* --- Tile grid (Phantom block layout, academic styling) --- */
+    .tiles {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -0.75rem 2rem -0.75rem;
+    }
+    .tiles .tile {
+      width: 50%;
+      padding: 0 0.75rem 1.5rem 0.75rem;
+    }
+    .tiles .tile > a {
+      display: block;
+      border: 1px solid #d9d9d9;
+      background: #fff;
+      text-decoration: none;
+      color: inherit;
+      height: 100%;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .tiles .tile > a:hover,
+    .tiles .tile > a:focus {
+      border-color: #004f90;
+      box-shadow: 0 0 0 1px #004f90;
+      text-decoration: none;
+      color: inherit;
+    }
+    .tiles .tile > a:focus {
+      outline: 2px solid #004f90;
+      outline-offset: 2px;
+    }
+
+    .tile-figure {
+      display: block;
+      width: 100%;
+      background: #f4f4f4;
+      border-bottom: 1px solid #e6e6e6;
+      overflow: hidden;
+    }
+    .tile-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .tile-body {
+      padding: 1rem 1.15rem 1.15rem 1.15rem;
+    }
+    .tile-body h2 {
+      font-family: 'Charter', Georgia, serif;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 0 0.35rem 0;
+      line-height: 1.3;
+    }
+    .tile-body .tile-meta {
+      font-size: 14px;
+      color: #777;
+      margin: 0 0 0.5rem 0;
+    }
+    .tile-body p.tile-desc {
+      font-size: 15.5px;
+      color: #444;
+      margin: 0;
+    }
+
+    /* Wide tile: spans the full row */
+    .tiles .tile.tile-wide {
+      width: 100%;
+    }
+
+    @media (max-width: 767px) {
+      .tiles .tile,
+      .tiles .tile.tile-wide {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tiles .tile > a { transition: none; }
+    }
+
+    .page-footer {
+      border-top: 1px solid #e6e6e6;
+      padding-top: 1rem;
+      margin-bottom: 3rem;
+      font-size: 15px;
+      color: #777;
+    }
+    .page-footer a { color: #004f90; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li class="active"><a href="plots.html">Plots</a></li>
+        <li><a href="docs/jqdevos-curriculum-vitae.pdf">CV</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10">
+
+      <div class="page-intro">
+        <h1>Plots</h1>
+        <p>Some of my favourite visualisations from my research.</p>
+      </div>
+
+      <section class="tiles">
+
+        <div class="tile">
+          <a href="plots/plot-a.html">
+            <span class="tile-figure">
+              <img src="img/plots/mayor-timeline.png" alt="">
+            </span>
+            <div class="tile-body">
+              <h2>Mayoral handovers in South African metros</h2>
+              <p class="tile-meta">Related to my August 2026 working paper on council stability and metro performance.</p>
+              <p class="tile-desc"></p>
+            </div>
+          </a>
+        </div>
+
+        <div class="tile">
+          <a href="plots/plot-b.html">
+            <span class="tile-figure">
+              <img src="img/plots/sdid-qlfs.png" alt="">
+            </span>
+            <div class="tile-body">
+              <h2>Synthetic Difference-in-Differences results</h2>
+              <p class="tile-meta">Related to my August 2026 working paper on council stability and metro performance.</p>
+              <p class="tile-desc"></p>
+            </div>
+          </a>
+        </div>
+
+        <div class="tile tile-wide">
+          <a href="plots/plot-c.html">
+            <span class="tile-figure">
+              <img src="img/plots/sdid-tourism.png" alt="">
+            </span>
+            <div class="tile-body">
+              <h2>SDID results for Tourism</h2>
+              <p class="tile-meta">Related to my August 2026 working paper on council stability and metro performance.</p>
+              <p class="tile-desc">These results were not plotted directly in the working paper, but they visualise that while Cape Town's tourism growth outpaced other metros post-Covid, this is not the sole reason for the metro's outperformance on labour outcomes.</p>
+            </div>
+          </a>
+        </div>
+
+      </section>
+
+      <div class="page-footer">
+        Expect code and data for some of these projects to go live on my <a href="https://github.com/jqdevos">GitHub</a> in due course.
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
